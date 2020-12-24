@@ -52,6 +52,7 @@ button.addEventListener('click', function(){  //Нажатие на кнопку
 function IsCorrectLetter(){ //Игрок делает попытку
     let pivot = GameModel.currentWord.split('');
     let pivot2; 
+    inp = inp.toLowerCase();
 
         if(pivot.indexOf(inp)==-1)
         {

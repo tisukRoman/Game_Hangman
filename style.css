@@ -62,3 +62,20 @@ body{
     background-repeat: no-repeat;
     background-position: bottom;
 }
+
+.wrap_bottom{
+    display: block;
+    height: 35px;
+    max-width:300px;
+    border: 1px solid white;
+    margin: 0 auto;
+    background-color: black;
+    position: relative;
+}
+
+.wrap_bottom p{
+    color: wheat;
+    line-height: 5px;
+    text-align: center;
+    font-size: 14px;
+}

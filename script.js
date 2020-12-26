@@ -4,6 +4,7 @@ let picture = document.querySelector('.paint');
 let attent = document.getElementById('attention');
 let attempt = document.getElementById('attempts');
 let bigDig = document.getElementById('big');
+let usedPanel = document.getElementById('used_words');
 let inp;
 
 let GameModel = { //игровая модель
@@ -44,9 +45,11 @@ function CheckInput(){  //Валидация инпута (при правиль
 button.addEventListener('click', function(){  //Нажатие на кнопку
    inp = document.querySelector('input').value;
    CheckInput();
-   if(CheckInput()==true) IsCorrectLetter();
+   if(CheckInput()==true){
+       if(!usedPanel.innerHTML.includes(inp.toUpperCase()))usedPanel.innerHTML += inp.toUpperCase() + ', ';
+       IsCorrectLetter();
+    }
    else return false;
-    
 });
 
 function IsCorrectLetter(){ //Игрок делает попытку
@@ -54,7 +57,7 @@ function IsCorrectLetter(){ //Игрок делает попытку
     let pivot2; 
     inp = inp.toLowerCase();
 
-        if(pivot.indexOf(inp)==-1)
+        if(pivot.indexOf(inp) == -1)
         {
             GameModel.attempts--; 
             attempt.innerHTML = GameModel.attempts;
@@ -65,7 +68,7 @@ function IsCorrectLetter(){ //Игрок делает попытку
         {
             attent.innerHTML = 'Молодец!';
             for(let i = 0; i<pivot.length; i++){
-                if(inp==pivot[i]){
+                if(inp == pivot[i]){
                     pivot2 = screenWord.innerHTML.split(' ');
                     pivot2[i] = pivot[i];
                     pivot2 = pivot2.join(' ');

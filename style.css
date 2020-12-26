@@ -55,12 +55,16 @@ body{
 
 
 .lose{
-    background-image: url(img/lose.jpg);
+    background-image: url(img/lose.png);
+    background-repeat: no-repeat;
+    background-position: 30% -20%;
+    background-size: 85%;
 }
 .win{
     background-image: url(img/win.png);
     background-repeat: no-repeat;
     background-position: bottom;
+    background-size: 85%;
 }
 
 .wrap_bottom{

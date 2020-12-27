@@ -29,11 +29,15 @@ SetCurrentWord();
 attempt.innerHTML = GameModel.attempts;
 
 function SetCurrentWord(){  //Подбор нового слова
-    if(GameModel.theme==null) {screenWord.innerHTML = 'Выберите тематику =>'; return false;}
+    if(GameModel.theme==null){
+        localStorage.setItem('theme', 'history'); 
+        location.reload();
+    }
     if(GameModel.theme=="history") GameModel.currentWord =  histWords[Math.floor(Math.random()*histWords.length)].toLowerCase();
     if(GameModel.theme=="biology") GameModel.currentWord =  bioWords[Math.floor(Math.random()*bioWords.length)].toLowerCase();
     if(GameModel.theme=="literature") GameModel.currentWord =  litWords[Math.floor(Math.random()*litWords.length)].toLowerCase();
     console.log(GameModel.theme);
+    console.log(GameModel.currentWord);
 
     let pivot = GameModel.currentWord.split('');
     pivot = pivot.join(' ');
@@ -128,7 +132,7 @@ function CheckWin(){  // проверка проигрыша\победы и п�
         screenWord.innerHTML = GameModel.currentWord;
         Restart();
     }
-    if(screenWord.innerHTML.indexOf('_')==-1){
+    else if(screenWord.innerHTML.indexOf('_')==-1){
         GameModel.win = true;
         attent.innerHTML = 'Вы победили)';
         picture.classList.add('win');

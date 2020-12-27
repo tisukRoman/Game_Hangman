@@ -29,10 +29,11 @@ SetCurrentWord();
 attempt.innerHTML = GameModel.attempts;
 
 function SetCurrentWord(){  //Подбор нового слова
+    if(GameModel.theme==null) screenWord.innerHTML = 'Выберите тематику =>'; return false;
     if(GameModel.theme=="history") GameModel.currentWord =  histWords[Math.floor(Math.random()*histWords.length)].toLowerCase();
     if(GameModel.theme=="biology") GameModel.currentWord =  bioWords[Math.floor(Math.random()*bioWords.length)].toLowerCase();
     if(GameModel.theme=="literature") GameModel.currentWord =  litWords[Math.floor(Math.random()*litWords.length)].toLowerCase();
-    console.log(GameModel.currentWord);
+    console.log(GameModel.theme);
 
     let pivot = GameModel.currentWord.split('');
     pivot = pivot.join(' ');

@@ -114,6 +114,10 @@ body{
 .menu_display p{
     cursor: pointer;
 }
+.menu_display h3{
+    color: bisque;
+    text-align: center;
+}
 .menu_display p:hover{
     transform: scale(1.2);
     border-bottom: 1px solid gold;
